@@ -2,6 +2,11 @@
 
 Opinionated Cursor rules and writing practices for building software that stays readable under pressure.
 
+## Start here
+
+- `_CursorCult` (CLI + canonical docs): https://github.com/CursorCult/_CursorCult
+- Install: `pipx install cursorcult` (then run `cursorcult`)
+
 ## What you’ll find here
 
 - **Rule packs**: focused, composable sets of Cursor rules you can drop into a repo
@@ -13,6 +18,24 @@ Opinionated Cursor rules and writing practices for building software that stays 
 1. Pick a pack from https://github.com/CursorCult
 2. Add its rules to your project (commonly under `.cursor/rules/`)
 3. Tune per-repo: keep the rules short, enforceable, and aligned with your team
+
+## Packs
+
+- https://github.com/CursorCult/TDD
+- https://github.com/CursorCult/SpecsFirst
+- https://github.com/CursorCult/DesignToTest
+- https://github.com/CursorCult/NoMocksNoSkips
+- https://github.com/CursorCult/LimitMocks
+- https://github.com/CursorCult/NoDeadCode
+- https://github.com/CursorCult/DRY
+- https://github.com/CursorCult/RAII
+- https://github.com/CursorCult/TruthOrSilence
+- https://github.com/CursorCult/NoHedging
+- https://github.com/CursorCult/EzGrep
+- https://github.com/CursorCult/UMP
+- https://github.com/CursorCult/UNO
+- https://github.com/CursorCult/PUTTPUTT
+- https://github.com/CursorCult/Pinocchio
 
 ## Contributing
 
