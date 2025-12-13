@@ -13,6 +13,8 @@
 - `_CursorCult` (CLI + canonical docs): https://github.com/CursorCult/_CursorCult
 - `_intake` (propose new repos): https://github.com/CursorCult/_intake
 - `_rulesets` (named rulesets): https://github.com/CursorCult/_rulesets
+- `_metrics` (benchmark metrics): https://github.com/CursorCult/_metrics
+- `_results` (benchmark results): https://github.com/CursorCult/_results
 - Install: `pipx install cursorcult` (then run `cursorcult`)
 - Cursor (the editor): https://cursor.com
 
@@ -66,8 +68,13 @@ Open a PR in `CursorCult/_intake` with a single `submissions/<project>.yml` file
 This is the supported way to propose:
 
 - new rule packs (repos that don’t start with `.` or `_`)
-- `_benchmark_<RULE>` and `_benchmark_<RULESET>` repos (benchmarks + results over `v0`, `v1`, `v2`, …)
+- `_benchmark_<RULE>` and `_benchmark_<RULESET>` repos (benchmarks; publish results to `_results`)
 - other org infrastructure
+
+Benchmarks can reuse standard metrics from `CursorCult/_metrics`, and results should be added via PRs to:
+
+- `CursorCult/_results/rules/<RULE>/<language>/RESULTS.md`
+- `CursorCult/_results/rulesets/<RULESET>/<language>/RESULTS.md`
 
 ### Contribute to an existing rule pack
 

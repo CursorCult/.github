@@ -43,8 +43,18 @@ Use the intake repo:
 Submit a PR with one YAML file under `submissions/` describing:
 
 - `CursorCult/<rule>` rule pack repos (repos that don’t start with `.` or `_`)
-- `_benchmark_<RULE>` benchmark repos (show results improving across `v0`, `v1`, `v2`, …)
-- `_benchmark_<RULESET>` benchmark repos (benchmarks a named ruleset)
+- `_benchmark_<RULE>` benchmark repos (rule-specific benchmarks; publish results to `_results`)
+- `_benchmark_<RULESET>` benchmark repos (ruleset benchmarks; publish results to `_results`)
+
+Standard metrics live in:
+
+- https://github.com/CursorCult/_metrics (e.g. `python/code_coverage.py` emits a single number)
+
+Benchmark results live in:
+
+- https://github.com/CursorCult/_results
+  - `rules/<RULE>/<language>/RESULTS.md`
+  - `rulesets/<RULESET>/<language>/RESULTS.md`
 
 ### Rulesets
 
