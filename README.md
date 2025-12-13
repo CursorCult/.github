@@ -7,6 +7,7 @@ This repository powers **organization-wide defaults** for the CursorCult GitHub 
 - **Org profile README**: see `profile/README.md` (renders on https://github.com/CursorCult)
 - **Shared GitHub “community health” files** (as we add them): PR templates, issue templates, contributing docs, etc.
 - **Pointers to rule packs** hosted in the org
+- **Cursor links**: https://cursor.com and rule format docs
 
 ## CursorCult rule packs
 
@@ -34,6 +35,8 @@ Quick start (CLI):
 pipx install cursorcult
 cursorcult
 ```
+
+Cursor docs for rule files: https://cursor.com/docs/context/rules#rulemd-file-format
 
 ## License
 

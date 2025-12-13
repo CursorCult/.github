@@ -6,6 +6,7 @@ Opinionated Cursor rules and writing practices for building software that stays 
 
 - `_CursorCult` (CLI + canonical docs): https://github.com/CursorCult/_CursorCult
 - Install: `pipx install cursorcult` (then run `cursorcult`)
+- Cursor (the editor): https://cursor.com
 
 ## What you’ll find here
 
