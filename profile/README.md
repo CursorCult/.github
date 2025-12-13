@@ -68,7 +68,7 @@ Open a PR in `CursorCult/_intake` with a single `submissions/<project>.yml` file
 This is the supported way to propose:
 
 - new rule packs (repos that don’t start with `.` or `_`)
-- `_benchmark_<RULE>` and `_benchmark_<RULESET>` repos (benchmarks; publish results to `_results`)
+- `_benchmark_<RULE>` repos (benchmarks; publish results to `_results`)
 - other org infrastructure
 
 Benchmarks can reuse standard metrics from `CursorCult/_metrics`, and results should be added via PRs to:

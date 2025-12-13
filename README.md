@@ -44,7 +44,6 @@ Submit a PR with one YAML file under `submissions/` describing:
 
 - `CursorCult/<rule>` rule pack repos (repos that don’t start with `.` or `_`)
 - `_benchmark_<RULE>` benchmark repos (rule-specific benchmarks; publish results to `_results`)
-- `_benchmark_<RULESET>` benchmark repos (ruleset benchmarks; publish results to `_results`)
 
 Standard metrics live in:
 
