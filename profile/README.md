@@ -49,7 +49,6 @@
 - [UMP](https://github.com/CursorCult/UMP/blob/v0/RULE.md) `v0` — Simple naming scheme where private entities are prefixed with an underscore
 - [UNO](https://github.com/CursorCult/UNO/blob/v0/RULE.md) `v0` — Enforce one definition per file in source code
 <!-- RULES:END -->
-
 ## 🌟 Why CursorCult
 
 - **Readable under pressure:** rules are written to keep teams aligned even when timelines are tight.
