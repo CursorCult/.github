@@ -1,26 +1,32 @@
 # CursorCult
 
-Opinionated Cursor rules and writing practices for building software that stays readable under pressure.
+> Opinionated Cursor rules and writing practices for building software that stays readable under pressure.
 
-## Start here
+<p align="center">
+  <img alt="CursorCult" src="https://img.shields.io/badge/Focus-Clarity-blue" />
+  <img alt="CursorCult" src="https://img.shields.io/badge/Style-Testable-green" />
+  <img alt="CursorCult" src="https://img.shields.io/badge/Defaults-Strong-purple" />
+</p>
+
+## ⚡ Quick start
 
 - `_CursorCult` (CLI + canonical docs): https://github.com/CursorCult/_CursorCult
 - Install: `pipx install cursorcult` (then run `cursorcult`)
 - Cursor (the editor): https://cursor.com
 
-## What you’ll find here
+## 🧭 What you’ll find
 
 - **Rule packs**: focused, composable sets of Cursor rules you can drop into a repo
 - **Style constraints**: bias toward clarity, testability, and fast refactors
 - **Strong defaults**: fewer “maybe”s, more executable intent
 
-## How to use
+## 🛠️ How to use
 
 1. Pick a pack from https://github.com/CursorCult
 2. Add its rules to your project (commonly under `.cursor/rules/`)
 3. Tune per-repo: keep the rules short, enforceable, and aligned with your team
 
-## Rule packs
+## 📦 Rule packs
 
 <!-- RULES:START -->
 <!-- Auto-generated. Edits will be overwritten. -->
@@ -41,10 +47,17 @@ Opinionated Cursor rules and writing practices for building software that stays 
 - [UMP](https://github.com/CursorCult/UMP/blob/v0/RULE.md) `v0` — Simple naming scheme where private entities are prefixed with an underscore
 - [UNO](https://github.com/CursorCult/UNO/blob/v0/RULE.md) `v0` — Enforce one definition per file in source code
 <!-- RULES:END -->
-## Contributing
+
+## 🌟 Why CursorCult
+
+- **Readable under pressure:** rules are written to keep teams aligned even when timelines are tight.
+- **Composable defaults:** mix and match packs to fit your stack without carrying dead weight.
+- **Practice > prose:** every rule favors habits that are testable and enforceable, not aspirational.
+
+## 🤝 Contributing
 
 PRs that make rules **clearer, smaller, and more enforceable** are welcome. If you’re proposing a new pack, keep it narrow and name it after the constraint it enforces.
 
-## License
+## 📝 License
 
 Unlicense / public domain. See the org `.github` repo for details.
