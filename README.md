@@ -55,6 +55,8 @@ Benchmark results live in:
   - `rules/<RULE>/<language>/RESULTS.md`
   - `rulesets/<RULESET>/<language>/RESULTS.md`
 
+Results are PR-driven: bump `_results` submodules (metrics and/or a benchmark), regenerate, and commit updated `RESULTS.md`.
+
 ### Rulesets
 
 Rulesets are registered in:
