@@ -11,6 +11,8 @@
 ## ⚡ Quick start
 
 - `_CursorCult` (CLI + canonical docs): https://github.com/CursorCult/_CursorCult
+- `_intake` (propose new repos): https://github.com/CursorCult/_intake
+- `_rulesets` (named rulesets): https://github.com/CursorCult/_rulesets
 - Install: `pipx install cursorcult` (then run `cursorcult`)
 - Cursor (the editor): https://cursor.com
 
@@ -56,7 +58,27 @@
 
 ## 🤝 Contributing
 
-PRs that make rules **clearer, smaller, and more enforceable** are welcome. If you’re proposing a new pack, keep it narrow and name it after the constraint it enforces.
+### Propose a new repo (rule, benchmark, tooling)
+
+Open a PR in `CursorCult/_intake` with a single `submissions/<project>.yml` file:
+
+- https://github.com/CursorCult/_intake
+
+This is the supported way to propose:
+
+- new rule packs (repos that don’t start with `.` or `_`)
+- `_benchmark_<RULE>` and `_benchmark_<RULESET>` repos (benchmarks + results over `v0`, `v1`, `v2`, …)
+- other org infrastructure
+
+### Contribute to an existing rule pack
+
+Open a PR directly against the rule repo you want to change.
+
+### Create or edit a ruleset
+
+Open a PR in `CursorCult/_rulesets` adding/editing `rulesets/<NAME>.txt` (one rule per line).
+
+Rulesets only include rules with a `v1` tag; anything missing that requirement gets pruned.
 
 ## 📝 License
 

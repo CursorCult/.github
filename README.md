@@ -32,6 +32,38 @@ Small, opinionated rule packs you can mix-and-match per project. The canonical l
 - [UMP](https://github.com/CursorCult/UMP/blob/v0/RULE.md) `v0` — Simple naming scheme where private entities are prefixed with an underscore
 - [UNO](https://github.com/CursorCult/UNO/blob/v0/RULE.md) `v0` — Enforce one definition per file in source code
 <!-- RULES:END -->
+
+## How to contribute
+
+### Propose a new repo (rule, benchmark, tooling)
+
+Use the intake repo:
+
+- https://github.com/CursorCult/_intake
+
+Submit a PR with one YAML file under `submissions/` describing:
+
+- `CursorCult/<rule>` rule pack repos (repos that don’t start with `.` or `_`)
+- `_benchmark_<RULE>` benchmark repos (show results improving across `v0`, `v1`, `v2`, …)
+- `_benchmark_<RULESET>` benchmark repos (benchmarks a named ruleset)
+
+### Rulesets
+
+Rulesets are registered in:
+
+- https://github.com/CursorCult/_rulesets
+
+Each ruleset is `rulesets/<NAME>.txt` with newline-separated rule names (no versions).
+
+Eligibility requirement: rules referenced by rulesets must have a `v1` tag.
+
+### Using rulesets (CLI)
+
+```sh
+pipx install cursorcult
+cursorcult link --ruleset <NAME>
+```
+
 Browse the org repos: https://github.com/CursorCult
 
 Quick start (CLI):
