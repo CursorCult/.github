@@ -65,7 +65,7 @@ Rulesets are registered in:
 
 Each ruleset is `rulesets/<NAME>.txt` with newline-separated rule names (no versions).
 
-Eligibility requirement: rules referenced by rulesets must have a `v1` tag.
+Eligibility requirement: rules referenced by rulesets must have a `v0` tag.
 
 ### Using rulesets (CLI)
 
