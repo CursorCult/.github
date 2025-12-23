@@ -1,0 +1,22 @@
+name: Verify Rule
+
+on:
+  workflow_call:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install cursorcult
+        run: |
+          python -m pip install --upgrade pip
+          # Try pypi, fall back to git if not yet published/propagated
+          python -m pip install cursorcult || python -m pip install git+https://github.com/CursorCult/_CursorCult.git
+      - name: Verify rules repo
+        run: cursorcult verify .
