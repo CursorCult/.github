@@ -67,6 +67,12 @@ CursorCult follows a strict stability contract based on semantic version tags.
 - [UMP](https://github.com/CursorCult/UMP/blob/v0/RULE.md) `v0` — Simple naming scheme where private entities are prefixed with an underscore
 - [UNO](https://github.com/CursorCult/UNO/blob/v0/RULE.md) `v0` — Enforce one definition per file in source code
 <!-- RULES:END -->
+
+## 🌍 Community Showcase
+
+<!-- SHOWCASE:START -->
+<!-- SHOWCASE:END -->
+
 ## 🌟 Why CursorCult
 
 - **Readable under pressure:** rules are written to keep teams aligned even when timelines are tight.

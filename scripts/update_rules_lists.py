@@ -16,6 +16,8 @@ from typing import Any, Iterable
 ORG_DEFAULT = "CursorCult"
 MARKER_START = "<!-- RULES:START -->"
 MARKER_END = "<!-- RULES:END -->"
+SHOWCASE_START = "<!-- SHOWCASE:START -->"
+SHOWCASE_END = "<!-- SHOWCASE:END -->"
 
 
 @dataclass(frozen=True)
@@ -150,50 +152,91 @@ def build_rules_markdown(org: str, repos: list[Repo], token: str | None) -> str:
     return "\n".join(lines) + ("\n" if lines else "")
 
 
-def replace_between_markers(contents: str, replacement: str) -> str:
-    start = contents.find(MARKER_START)
-    end = contents.find(MARKER_END)
-    if start == -1 or end == -1 or end < start:
-        raise ValueError(f"Missing markers {MARKER_START} / {MARKER_END}")
+def fetch_registry() -> dict[str, Any]:
+    url = "https://raw.githubusercontent.com/CursorCult/_intake/main/registry.json"
+    try:
+        with urllib.request.urlopen(url, timeout=10) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except Exception as e:
+        print(f"Warning: Failed to fetch registry: {e}", file=sys.stderr)
+        return {{}}
 
-    end += len(MARKER_END)
+def build_showcase_markdown(registry: dict[str, Any]) -> str:
+    lines = []
+    candidates = []
+    for key, entry in registry.items():
+        if entry.get("license") == "Unlicense":
+            candidates.append(entry)
+    
+    candidates.sort(key=lambda x: x["name"].lower())
+    
+    for entry in candidates:
+        name = entry["name"]
+        desc = entry.get("description") or ""
+        url = entry.get("source_url") or ""
+        maint = entry.get("maintainer") or "?"
+        
+        # Simple format
+        line = f"- [{name}]({url}) — {desc} (by @{maint})"
+        lines.append(line)
+        
+    return "\n".join(lines) + ("\n" if lines else "")
+
+def replace_between_markers(contents: str, replacement: str, start_marker: str, end_marker: str) -> str:
+    start = contents.find(start_marker)
+    end = contents.find(end_marker)
+    if start == -1 or end == -1 or end < start:
+        return contents
+
+    end += len(end_marker)
     before = contents[:start]
     after = contents[end:]
 
     block = (
-        f"{MARKER_START}\n"
+        f"{start_marker}\n"
         f"<!-- Auto-generated. Edits will be overwritten. -->\n\n"
         f"{replacement}"
-        f"{MARKER_END}"
+        f"{end_marker}"
     )
     if not block.endswith("\n"):
         block += "\n"
 
     return before + block + after.lstrip("\n")
 
+def update_file(path: str, rules_md: str, showcase_md: str) -> bool:
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            original = f.read()
+    except FileNotFoundError:
+        return False
 
-def update_file(path: str, rules_md: str) -> bool:
-    with open(path, "r", encoding="utf-8") as f:
-        original = f.read()
-    updated = replace_between_markers(original, rules_md)
-    if updated == original:
+    current = original
+    current = replace_between_markers(current, rules_md, MARKER_START, MARKER_END)
+    current = replace_between_markers(current, showcase_md, SHOWCASE_START, SHOWCASE_END)
+    
+    if current == original:
         return False
     with open(path, "w", encoding="utf-8") as f:
-        f.write(updated)
+        f.write(current)
     return True
-
 
 def main(argv: list[str]) -> int:
     org = os.getenv("CURSORCULT_ORG", ORG_DEFAULT)
     token = _github_token_optional()
 
     target_files = argv[1:] if len(argv) > 1 else ["README.md", "profile/README.md"]
+    
+    # 1. Build Org Rules List
     repos = list_rule_repos(org, token)
     rules_md = build_rules_markdown(org, repos, token)
+    
+    # 2. Build Community Showcase
+    registry = fetch_registry()
+    showcase_md = build_showcase_markdown(registry)
 
     changed_any = False
     for path in target_files:
-        if update_file(path, rules_md):
+        if update_file(path, rules_md, showcase_md):
             print(f"updated: {path}")
             changed_any = True
         else:
