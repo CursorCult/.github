@@ -161,7 +161,29 @@ def fetch_registry() -> dict[str, Any]:
         print(f"Warning: Failed to fetch registry: {e}", file=sys.stderr)
         return {{}}
 
-def build_showcase_markdown(registry: dict[str, Any]) -> str:
+def fetch_github_stars(url: str, token: str | None) -> int | None:
+    m = re.match(r"https?://github\.com/([^/]+)/([^/]+)", url)
+    if not m: return None
+    owner, repo = m.groups()
+    repo = repo.replace(".git", "")
+    api_url = f"https://api.github.com/repos/{owner}/{repo}"
+    try:
+        data, _ = _request_json(api_url, token)
+        return data.get("stargazers_count")
+    except Exception:
+        return None
+
+def check_benchmark(rule_name: str, token: str | None) -> str | None:
+    # Return link to results if exists
+    path = f"rules/{rule_name}/python/RESULTS.md"
+    url = f"https://api.github.com/repos/CursorCult/_results/contents/{path}"
+    try:
+        _request_json(url, token)
+        return f"https://github.com/CursorCult/_results/blob/main/{path}"
+    except Exception:
+        return None
+
+def build_showcase_markdown(registry: dict[str, Any], token: str | None) -> str:
     lines = []
     candidates = []
     for key, entry in registry.items():
@@ -176,11 +198,17 @@ def build_showcase_markdown(registry: dict[str, Any]) -> str:
         url = entry.get("source_url") or ""
         maint = entry.get("maintainer") or "?"
         
-        # Simple format
-        line = f"- [{name}]({url}) — {desc} (by @{maint})"
+        stars = fetch_github_stars(url, token)
+        star_badge = f" ⭐ {stars}" if stars is not None else ""
+        
+        bench_link = check_benchmark(name, token)
+        bench_badge = f" [🏆 Benchmark]({bench_link})" if bench_link else ""
+        
+        line = f"- [{name}]({url}){star_badge}{bench_badge} — {desc} (by @{maint})"
         lines.append(line)
         
     return "\n".join(lines) + ("\n" if lines else "")
+
 
 def replace_between_markers(contents: str, replacement: str, start_marker: str, end_marker: str) -> str:
     start = contents.find(start_marker)
@@ -202,6 +230,7 @@ def replace_between_markers(contents: str, replacement: str, start_marker: str, 
         block += "\n"
 
     return before + block + after.lstrip("\n")
+
 
 def update_file(path: str, rules_md: str, showcase_md: str) -> bool:
     try:
@@ -232,7 +261,7 @@ def main(argv: list[str]) -> int:
     
     # 2. Build Community Showcase
     registry = fetch_registry()
-    showcase_md = build_showcase_markdown(registry)
+    showcase_md = build_showcase_markdown(registry, token)
 
     changed_any = False
     for path in target_files:
