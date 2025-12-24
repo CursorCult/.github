@@ -10,6 +10,7 @@
 
 ## ⚡ Quick start
 
+- `CursorCult.github.io` (search community rules): https://cursorcult.github.io
 - `_CursorCult` (CLI + canonical docs): https://github.com/CursorCult/_CursorCult
 - `_intake` (propose new repos): https://github.com/CursorCult/_intake
 - `_rulesets` (named rulesets): https://github.com/CursorCult/_rulesets
