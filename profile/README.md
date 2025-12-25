@@ -55,10 +55,9 @@ CursorCult follows a strict stability contract based on semantic version tags.
 - [DesignToTest](https://github.com/CursorCult/DesignToTest/blob/v0/RULE.md) `v0` — Design interfaces for rapid, isolated testing
 - [DRY](https://github.com/CursorCult/DRY/blob/v0/RULE.md) `v0` — Do not repeat yourself (DRY), a classic rule for reducing code duplication
 - [EzGrep](https://github.com/CursorCult/EzGrep/blob/v0/RULE.md) `v0` — Optimize naming for grep/ack-based code search
-- [LimitMocks](https://github.com/CursorCult/LimitMocks/blob/v0/RULE.md) `v0` — Prefer real dependencies; use mocks sparingly
 - [NoDeadCode](https://github.com/CursorCult/NoDeadCode/blob/v0/RULE.md) `v0` — Forbid dead, unused, or unreachable code
 - [NoHedging](https://github.com/CursorCult/NoHedging/blob/v0/RULE.md) `v0` — Avoid hedged defaults; require explicit, validated data
-- [NoMocksNoSkips](https://github.com/CursorCult/NoMocksNoSkips/blob/v0/RULE.md) `v0` — Forbid mocks and skipped tests; require real systems
+- [PAPER](https://github.com/CursorCult/PAPER/blob/v0/RULE.md) `v0` — Tests must exercise real user behavior; unreality is PAPER.
 - [Pinocchio](https://github.com/CursorCult/Pinocchio/blob/v0/RULE.md) `v0` — Reduce the risk of doc rot, i.e. current truths become future lies
 - [PUTTPUTT](https://github.com/CursorCult/PUTTPUTT/blob/v0/RULE.md) `v0` — Enforce total test coverage through public-only tests
 - [RAII](https://github.com/CursorCult/RAII/blob/v0/RULE.md) `v0` — Require constructors to fully acquire resources and establish invariants
@@ -68,12 +67,12 @@ CursorCult follows a strict stability contract based on semantic version tags.
 - [UMP](https://github.com/CursorCult/UMP/blob/v0/RULE.md) `v0` — Simple naming scheme where private entities are prefixed with an underscore
 - [UNO](https://github.com/CursorCult/UNO/blob/v0/RULE.md) `v0` — Enforce one definition per file in source code
 <!-- RULES:END -->
-
 ## 🌍 Community Showcase
 
 <!-- SHOWCASE:START -->
-<!-- SHOWCASE:END -->
+<!-- Auto-generated. Edits will be overwritten. -->
 
+<!-- SHOWCASE:END -->
 ## 🌟 Why CursorCult
 
 - **Readable under pressure:** rules are written to keep teams aligned even when timelines are tight.

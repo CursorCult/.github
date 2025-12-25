@@ -19,10 +19,9 @@ Small, opinionated rule packs you can mix-and-match per project. The canonical l
 - [DesignToTest](https://github.com/CursorCult/DesignToTest/blob/v0/RULE.md) `v0` — Design interfaces for rapid, isolated testing
 - [DRY](https://github.com/CursorCult/DRY/blob/v0/RULE.md) `v0` — Do not repeat yourself (DRY), a classic rule for reducing code duplication
 - [EzGrep](https://github.com/CursorCult/EzGrep/blob/v0/RULE.md) `v0` — Optimize naming for grep/ack-based code search
-- [LimitMocks](https://github.com/CursorCult/LimitMocks/blob/v0/RULE.md) `v0` — Prefer real dependencies; use mocks sparingly
 - [NoDeadCode](https://github.com/CursorCult/NoDeadCode/blob/v0/RULE.md) `v0` — Forbid dead, unused, or unreachable code
 - [NoHedging](https://github.com/CursorCult/NoHedging/blob/v0/RULE.md) `v0` — Avoid hedged defaults; require explicit, validated data
-- [NoMocksNoSkips](https://github.com/CursorCult/NoMocksNoSkips/blob/v0/RULE.md) `v0` — Forbid mocks and skipped tests; require real systems
+- [PAPER](https://github.com/CursorCult/PAPER/blob/v0/RULE.md) `v0` — Tests must exercise real user behavior; unreality is PAPER.
 - [Pinocchio](https://github.com/CursorCult/Pinocchio/blob/v0/RULE.md) `v0` — Reduce the risk of doc rot, i.e. current truths become future lies
 - [PUTTPUTT](https://github.com/CursorCult/PUTTPUTT/blob/v0/RULE.md) `v0` — Enforce total test coverage through public-only tests
 - [RAII](https://github.com/CursorCult/RAII/blob/v0/RULE.md) `v0` — Require constructors to fully acquire resources and establish invariants
