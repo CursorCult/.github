@@ -16,6 +16,7 @@ Small, opinionated rule packs you can mix-and-match per project. The canonical l
 <!-- RULES:START -->
 <!-- Auto-generated. Edits will be overwritten. -->
 
+- [CursorCult.github.io](https://github.com/CursorCult/CursorCult.github.io) `unreleased` — Home of the CursorCult
 - [DesignToTest](https://github.com/CursorCult/DesignToTest/blob/v0/RULE.md) `v0` — Design interfaces for rapid, isolated testing
 - [DRY](https://github.com/CursorCult/DRY/blob/v0/RULE.md) `v0` — Do not repeat yourself (DRY), a classic rule for reducing code duplication
 - [EzGrep](https://github.com/CursorCult/EzGrep/blob/v0/RULE.md) `v0` — Optimize naming for grep/ack-based code search
