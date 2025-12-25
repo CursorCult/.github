@@ -187,7 +187,7 @@ def build_showcase_markdown(registry: dict[str, Any], token: str | None) -> str:
     lines = []
     candidates = []
     for key, entry in registry.items():
-        if entry.get("license") == "Unlicense":
+        if entry.get("license") == "Unlicense" and not entry.get("archived", False):
             candidates.append(entry)
     
     candidates.sort(key=lambda x: x["name"].lower())
