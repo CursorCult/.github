@@ -12,6 +12,11 @@ import urllib.request
 from dataclasses import dataclass
 from typing import Any, Iterable
 
+try:
+    from cursorcult.core import list_repos as cursorcult_list_repos
+except Exception:
+    cursorcult_list_repos = None
+
 
 ORG_DEFAULT = "CursorCult"
 MARKER_START = "<!-- RULES:START -->"
@@ -25,6 +30,8 @@ class Repo:
     name: str
     description: str | None
     default_branch: str
+    latest_tag: str | None = None
+    tags_known: bool = False
 
 
 @dataclass(frozen=True)
@@ -82,11 +89,37 @@ def _paginate(url: str, token: str | None) -> Iterable[Any]:
 
 
 def list_rule_repos(org: str, token: str | None) -> list[Repo]:
+    if cursorcult_list_repos and org == ORG_DEFAULT:
+        repos = cursorcult_list_repos(include_untagged=True)
+        results: list[Repo] = []
+        for repo in repos:
+            description = repo.description
+            if isinstance(description, str):
+                description = description.strip()
+                if not description or description == "no description":
+                    description = None
+            else:
+                description = None
+            default_branch = getattr(repo, "default_branch", "main")
+            results.append(
+                Repo(
+                    name=repo.name,
+                    description=description,
+                    default_branch=default_branch,
+                    latest_tag=repo.latest_tag,
+                    tags_known=True,
+                )
+            )
+        results.sort(key=lambda r: r.name.casefold())
+        return results
+
     url = f"https://api.github.com/orgs/{urllib.parse.quote(org)}/repos?per_page=100&type=public"
     repos: list[Repo] = []
     for item in _paginate(url, token):
         name = item.get("name") or ""
         if not name or name.startswith(".") or name.startswith("_"):
+            continue
+        if name.endswith(".github.io"):
             continue
         if item.get("fork") is True:
             continue
@@ -140,7 +173,9 @@ def rule_md_exists(org: str, repo: str, ref: str, token: str | None) -> bool:
 def build_rules_markdown(org: str, repos: list[Repo], token: str | None) -> str:
     lines: list[str] = []
     for repo in repos:
-        tag = latest_rule_tag(org, repo.name, token)
+        tag = repo.latest_tag
+        if not repo.tags_known:
+            tag = latest_rule_tag(org, repo.name, token)
         ref = tag or repo.default_branch
         link = f"https://github.com/{org}/{repo.name}/blob/{ref}/RULE.md"
         if not rule_md_exists(org, repo.name, ref, token):
@@ -159,7 +194,7 @@ def fetch_registry() -> dict[str, Any]:
             return json.loads(resp.read().decode("utf-8"))
     except Exception as e:
         print(f"Warning: Failed to fetch registry: {e}", file=sys.stderr)
-        return {{}}
+        return {}
 
 def fetch_github_stars(url: str, token: str | None) -> int | None:
     m = re.match(r"https?://github\.com/([^/]+)/([^/]+)", url)

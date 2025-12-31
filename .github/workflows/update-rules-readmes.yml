@@ -18,6 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install cursorcult
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install cursorcult
+
       - name: Update rules lists
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
