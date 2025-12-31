@@ -18,10 +18,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Resolve cursorcult version
+        id: cursorcult
+        run: |
+          set -euo pipefail
+          VERSION=$(git ls-remote --tags https://github.com/CursorCult/_CursorCult.git "v*.*.*" \
+            | awk -F/ '{print $3}' \
+            | sed 's/\^{}//' \
+            | sort -V \
+            | tail -n 1 \
+            | sed 's/^v//')
+          if [ -z "$VERSION" ]; then
+            echo "Failed to resolve cursorcult version" >&2
+            exit 1
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
       - name: Install cursorcult
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install cursorcult
+          python3 -m pip install "cursorcult==${{ steps.cursorcult.outputs.version }}"
 
       - name: Update rules lists
         env:
