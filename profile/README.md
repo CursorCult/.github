@@ -19,6 +19,14 @@
 - Install: `pipx install cursorcult` (then run `cursorcult`)
 - Cursor (the editor): https://cursor.com
 
+## Verification bias (policy)
+
+We strongly prefer rules that are easy to verify. This is not a hard requirement, but it is a core design bias.
+
+- Phrase rules so they produce observable evidence (logs, artifacts, commits, or trace links).
+- Favor wording that can be checked by scripts over sequencing claims that cannot be verified.
+- If a rule cannot be fully automated yet, document the expected evidence and how to review it.
+
 ## 🧭 What you’ll find
 
 - **Rule packs**: focused, composable sets of Cursor rules you can drop into a repo
