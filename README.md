@@ -84,6 +84,10 @@ cursorcult
 
 Cursor docs for rule files: https://cursor.com/docs/context/rules#rulemd-file-format
 
+## Publishing (_CursorCult)
+
+`_CursorCult` auto-publishes to PyPI via `.github/workflows/publish.yml` on push to `main` when `pyproject.toml` has a version without a matching `vX.Y.Z` tag. The workflow builds, publishes with trusted publishing, and then creates the tag.
+
 ## License
 
 Released into the public domain under the Unlicense. See `LICENSE`.
