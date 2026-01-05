@@ -66,7 +66,7 @@ CursorCult follows a strict stability contract based on semantic version tags.
 - [_results](https://github.com/CursorCult/_results) `unreleased` — Benchmark results for CursorCult rules and rulesets
 - [_rulesets](https://github.com/CursorCult/_rulesets) `unreleased` — Registry of CursorCult rulesets
 - [CursorCult.github.io](https://github.com/CursorCult/CursorCult.github.io) `unreleased` — Home of the CursorCult
-- [DesignToTest](https://github.com/CursorCult/DesignToTest/blob/v0/RULE.md) `v0` — Design interfaces for rapid, isolated testing
+- [DesignToTest](https://github.com/CursorCult/DesignToTest/blob/v0/RULE.md) `v0` — Merged into PUTTPUTT: design interfaces for rapid, isolated testing
 - [DRY](https://github.com/CursorCult/DRY/blob/v0/RULE.md) `v0` — Do not repeat yourself (DRY), a classic rule for reducing code duplication
 - [EzGrep](https://github.com/CursorCult/EzGrep/blob/v0/RULE.md) `v0` — Optimize naming for grep/ack-based code search
 - [Hodor](https://github.com/CursorCult/Hodor/blob/v0/RULE.md) `v0` — Requirements traceability management with Doorstop
@@ -76,7 +76,7 @@ CursorCult follows a strict stability contract based on semantic version tags.
 - [NoMocksNoSkips](https://github.com/CursorCult/NoMocksNoSkips/blob/v0/RULE.md) `v0` — Forbid mocks and skipped tests; require real systems
 - [PAPER](https://github.com/CursorCult/PAPER/blob/v0/RULE.md) `v0` — Tests must exercise real user behavior; unreality is PAPER.
 - [Pinocchio](https://github.com/CursorCult/Pinocchio/blob/v0/RULE.md) `v0` — Reduce the risk of doc rot, i.e. current truths become future lies
-- [PUTTPUTT](https://github.com/CursorCult/PUTTPUTT/blob/v0/RULE.md) `v0` — Enforce total test coverage through public-only tests
+- [PUTTPUTT](https://github.com/CursorCult/PUTTPUTT/blob/v0/RULE.md) `v0` — Enforce total test coverage through public APIs; includes DesignToTest guidance
 - [RAII](https://github.com/CursorCult/RAII/blob/v0/RULE.md) `v0` — Require constructors to fully acquire resources and establish invariants
 - [SpecsFirst](https://github.com/CursorCult/SpecsFirst/blob/v0/RULE.md) `v0` — Write specs first; keep spec/design/code in sync
 - [TDD](https://github.com/CursorCult/TDD/blob/v0/RULE.md) `v0` — Practice test-driven development (write tests first)
