@@ -60,12 +60,20 @@ CursorCult follows a strict stability contract based on semantic version tags.
 <!-- RULES:START -->
 <!-- Auto-generated. Edits will be overwritten. -->
 
+- [_benchmark_TDD](https://github.com/CursorCult/_benchmark_TDD) `unreleased` — Benchmark harness for the TDD rule
+- [_intake](https://github.com/CursorCult/_intake) `unreleased` — Intake repo for proposing new CursorCult projects
+- [_metrics](https://github.com/CursorCult/_metrics) `unreleased` — Standard benchmark metrics for CursorCult
+- [_results](https://github.com/CursorCult/_results) `unreleased` — Benchmark results for CursorCult rules and rulesets
+- [_rulesets](https://github.com/CursorCult/_rulesets) `unreleased` — Registry of CursorCult rulesets
+- [CursorCult.github.io](https://github.com/CursorCult/CursorCult.github.io) `unreleased` — Home of the CursorCult
 - [DesignToTest](https://github.com/CursorCult/DesignToTest/blob/v0/RULE.md) `v0` — Design interfaces for rapid, isolated testing
 - [DRY](https://github.com/CursorCult/DRY/blob/v0/RULE.md) `v0` — Do not repeat yourself (DRY), a classic rule for reducing code duplication
 - [EzGrep](https://github.com/CursorCult/EzGrep/blob/v0/RULE.md) `v0` — Optimize naming for grep/ack-based code search
 - [Hodor](https://github.com/CursorCult/Hodor/blob/v0/RULE.md) `v0` — Requirements traceability management with Doorstop
-- [NoDeadCode](https://github.com/CursorCult/NoDeadCode/blob/v0/RULE.md) `v0` — Forbid dead, unused, or unreachable code
+- [KISS](https://github.com/CursorCult/KISS/blob/v0/RULE.md) `v0` — Keep it simple, stupid (KISS), a rule for minimizing unnecessary complexity
+- [LimitMocks](https://github.com/CursorCult/LimitMocks/blob/v0/RULE.md) `v0` — Prefer real dependencies; use mocks sparingly
 - [NoHedging](https://github.com/CursorCult/NoHedging/blob/v0/RULE.md) `v0` — Avoid hedged defaults; require explicit, validated data
+- [NoMocksNoSkips](https://github.com/CursorCult/NoMocksNoSkips/blob/v0/RULE.md) `v0` — Forbid mocks and skipped tests; require real systems
 - [PAPER](https://github.com/CursorCult/PAPER/blob/v0/RULE.md) `v0` — Tests must exercise real user behavior; unreality is PAPER.
 - [Pinocchio](https://github.com/CursorCult/Pinocchio/blob/v0/RULE.md) `v0` — Reduce the risk of doc rot, i.e. current truths become future lies
 - [PUTTPUTT](https://github.com/CursorCult/PUTTPUTT/blob/v0/RULE.md) `v0` — Enforce total test coverage through public-only tests
@@ -75,6 +83,7 @@ CursorCult follows a strict stability contract based on semantic version tags.
 - [TruthOrSilence](https://github.com/CursorCult/TruthOrSilence/blob/v0/RULE.md) `v0` — Delete false internal prose; truth or silence
 - [UMP](https://github.com/CursorCult/UMP/blob/v0/RULE.md) `v0` — Simple naming scheme where private entities are prefixed with an underscore
 - [UNO](https://github.com/CursorCult/UNO/blob/v0/RULE.md) `v0` — Enforce one definition per file in source code
+- [YAGNI](https://github.com/CursorCult/YAGNI/blob/v0/RULE.md) `v0` — You aren't gonna need it (YAGNI), avoid speculative features and complexity
 <!-- RULES:END -->
 ## 🌍 Community Showcase
 
