@@ -32,9 +32,6 @@ jobs:
       - name: Run tests
         run: |
           pytest
-      - name: Run ccverify
-        run: |
-          cursorcult verify .
       - name: Build clean main snapshot
         run: |
           git config user.name "github-actions"
@@ -42,10 +39,14 @@ jobs:
           git checkout --orphan main
           git reset --hard
           git checkout ${{ inputs.branch }} -- .
-          rm -rf tests requirements-test.txt .github/workflows/tests.yml
+          rm -rf tests requirements-test.txt .github/workflows/tests.yml .github/workflows/mint.yml
           git add -A
           git commit -m "UNO v${{ inputs.version }}"
           git tag -f v${{ inputs.version }}
+      - name: Run ccverify
+        run: |
+          git fetch origin main:refs/remotes/origin/main || true
+          cursorcult verify .
       - name: Push main and tag
         run: |
           git push --force origin main
