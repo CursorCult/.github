@@ -1,6 +1,6 @@
 # NEXT priorities for CursorCult: A Roadmap of Sorts
 
-## Update KISS to Match UNO Workflow [P1] 🥖 vs 🥨
+## Update KISS to Match UNO Workflow [P1] 🏝️ vs 📚
 
 - [x] Create `t0` branch with tests and `requirements-test.txt`
 - [x] Add `tests.yml` to call reusable `test-rule.yml`
