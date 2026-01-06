@@ -34,7 +34,7 @@ jobs:
           pytest
       - name: Run ccverify
         run: |
-          python -m cursorcult verify .
+          cursorcult verify .
       - name: Build clean main snapshot
         run: |
           git config user.name "github-actions"
