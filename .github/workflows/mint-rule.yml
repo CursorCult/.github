@@ -39,7 +39,7 @@ jobs:
           git checkout --orphan main
           git reset --hard
           git checkout ${{ inputs.branch }} -- .
-          rm -rf tests requirements-test.txt .github/workflows/tests.yml .github/workflows/mint.yml
+          rm -rf tests requirements-test.txt .github/workflows/tests.yml .github/workflows/mint.yml .gitignore
           git add -A
           git commit -m "UNO v${{ inputs.version }}"
           git tag -f v${{ inputs.version }}
