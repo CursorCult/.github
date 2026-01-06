@@ -50,6 +50,26 @@ The `_CursorCult` repo contains the Python-based CLI tool used to manage these r
 *   **`v0` (Volatile)**: Development channel. Tags move; implies "latest bleeding edge".
 *   **`v1+` (Stable)**: Immutable release tags. Updates are explicit.
 
+## 🧪 Rule Repo Version/Testing Policy
+
+Rule repos use separate test branches to avoid `vN` tag/branch ambiguity.
+
+*   **Tags (`vN`)** live on `main` only. `main` contains exactly one commit per version tag.
+*   **Test branches (`tN`)** contain full tests and `requirements-test.txt`.
+*   `tests/` and `requirements-test.txt` must never appear on `main`.
+*   `requirements-test.txt` may only include `cursorcult` and `pytest`.
+*   Each `tN` branch must still be a valid rule repo after removing `tests/` and `requirements-test.txt`.
+*   For `v1+`, the `vN` tag must match the tip of the `tN` branch, excluding `tests/` and `requirements-test.txt`.
+*   Once `v1` exists, `t0` must be fully merged into `main`.
+
+## 🧰 Reusable Workflows
+
+*   **`test-rule.yml`**: reusable workflow to run `pytest` on `t*` branches.
+*   **`mint-rule.yml`**: reusable workflow to mint `vN` from `tN`:
+    *   runs tests and `cursorcult verify`,
+    *   builds a clean `main` snapshot,
+    *   force-updates `main` and tags `vN`.
+
 ## 🔄 Workflows
 
 1.  **Creating a Rule**: Use `cursorcult new <NAME>` (maintainers) or `cursorcult register` (community).
